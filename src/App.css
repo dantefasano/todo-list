@@ -1,38 +1,175 @@
-.App {
+/* Global Colors */
+:root {
+  --dandelion-yellow: #eaec40;
+  --cyclamen-pink: #f275ad;
+  --pearl-aqua: #79cbc5;
+  --canary-yellow: #ffff97;
+  --pastel-orange: #fbae4a;
+  --tulip-pink: #f3858e;
+}
+
+/* App.css */
+
+/* General Styles */
+.app {
+  font-family: "Arial", sans-serif;
+  background-color: var(--canary-yellow);
+  min-height: 750px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-2deg);
+}
+
+/* Title Styles */
+h1 {
+  font-family: "Helvetica", sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+/* Input Field Styles */
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+}
+
+/* Button "+" styles */
+.add-btn {
+  font-weight: bold;
+  font-size: 3rem;
+  color: #333;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.add-btn:hover {
+  color: #b8b0a6;
+}
+
+/* Color Picker */
+.color-picker {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.color-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgb(116, 114, 114);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.color-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Task Counter Styles */
+.task-count {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 20px;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Task List Styles */
+.task-list {
+  margin-top: 20px;
+  width: 70%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Task Item Styles */
+.task-item {
+  background-color: #fff;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: red;
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.task-item:hover .delete-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    width: 90%;
+    min-height: initial;
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .input-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  .add-btn {
+    font-size: 2rem;
+  }
+
+  .color-picker {
+    gap: 8px;
+  }
+
+  .task-list {
+    width: 100%;
   }
 }

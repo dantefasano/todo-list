@@ -1,0 +1,77 @@
+/* TodoItem.css */
+
+/* Task Item Styles */
+.todo-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.todo-item:hover {
+  transform: scale(1.02);
+}
+
+.delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: red;
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
+}
+
+.todo-item:hover .delete-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.todo-item p {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .delete-btn {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
